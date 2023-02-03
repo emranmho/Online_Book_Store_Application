@@ -1,8 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using Online_Book_Store_Application.Repository.Repository;
+using Online_Book_Store_Application.Repository.Repository.IRepository;
+using Online_Book_Store_Application.DataAccess;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<BookDbContext>(option =>
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DataConnectionName")
+    ));
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
