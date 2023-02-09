@@ -1,6 +1,6 @@
 ﻿using Online_Book_Store_Application.DataAccess;
-using Online_Book_Store_Application.Models;
-using Online_Book_Store_Application.Repository.Repository.IRepository;
+using Online_Book_Store_Application.Models.Models;
+using Online_Book_Store_Application.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +17,7 @@ namespace Online_Book_Store_Application.Repository.Repository
             _context = context;
         }
 
-        public async Task Save()
-        {
-            await _context.SaveChangesAsync();
-        }
-
-        public async void Update(Category entity)
+        public void Update(Category entity)
         {
             _context.Categories.Update(entity);
         }

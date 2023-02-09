@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Online_Book_Store_Application.DataAccess;
-using Online_Book_Store_Application.Repository.Repository.IRepository;
+using Online_Book_Store_Application.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +17,7 @@ namespace Online_Book_Store_Application.Repository.Repository
         public Repository(BookDbContext context)
         {
             _context = context;
+           // _context.Books.Include(x=>x.Category)
             this._dbSet = _context.Set<T>();
         }
 
@@ -25,16 +26,37 @@ namespace Online_Book_Store_Application.Repository.Repository
             await _dbSet.AddAsync(entity);
         }
 
-        public async Task<T> Get(Expression<Func<T, bool>> filter)
+        public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> query = _dbSet;
+
             query = query.Where(filter);
-            return await query.FirstOrDefaultAsync();
+            if (includeProperties != null)
+            {
+                foreach (var property in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(property);
+                }
+
+            }
+            return query.FirstOrDefault();
         }
 
-        public async Task<IEnumerable<T>> GetAll()
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter =null, string? includeProperties = null)
         {
             IQueryable<T> query =  _dbSet;
+            if(filter != null)
+            {
+                query = query.Where(filter);
+            }            
+            if (includeProperties != null)
+            {
+                foreach(var property in includeProperties.Split(new char[] { ','}, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(property);
+                }
+                    
+            }
             return query.ToList();
         }
 
@@ -42,6 +64,10 @@ namespace Online_Book_Store_Application.Repository.Repository
         {
             _dbSet.Remove(entity);
         }
+		public void RemoveRange(IEnumerable<T> entity)
+		{
+			_dbSet.RemoveRange(entity);
+		}
 
-    }
+	}
 }

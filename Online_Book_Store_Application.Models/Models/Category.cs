@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Online_Book_Store_Application.Models;
+namespace Online_Book_Store_Application.Models.Models;
 
 public class Category
 {

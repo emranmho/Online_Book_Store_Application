@@ -1,0 +1,36 @@
+﻿@model BookAuthor
+
+<form method="post" asp-action="DeletePost">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Author</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" disabled/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="AuthorSerialId"></label>
+            <input asp-for="AuthorSerialId" class="form-control" disabled/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" class="form-control" disabled/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="PhoneNumber"></label>
+            <input asp-for="PhoneNumber" class="form-control" disabled/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" disabled/>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+        <a asp-controller="BookAuthor" asp-action="Index" class="btn btn-danger" style="width:150px">Back to List</a>
+    </div>
+</form>
+
+
+

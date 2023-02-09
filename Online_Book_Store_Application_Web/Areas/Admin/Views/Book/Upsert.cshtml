@@ -1,0 +1,139 @@
+﻿@model Online_Book_Store_Application.Models.ViewModels.BookVM;
+
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <input asp-for="Book.Id" hidden/>
+    <input asp-for="Book.ImageUrl" hidden />
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="col-12 pb-2">
+                    <h2 class="text-primary">@(Model.Book.Id != 0 ? "Update" : "Create") Books</h2>
+                    <hr />
+                </div>
+                <div asp-validation-summary="All"></div>
+                <div class="mb-3">
+                    <label asp-for="Book.Title"></label>
+                    <input asp-for="Book.Title" class="form-control" />
+                    <span asp-validation-for="Book.Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Book.Description"></label>
+                    <textarea asp-for="Book.Description" rows="3" class="form-control"></textarea>
+                    <span asp-validation-for="Book.Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-4">
+                    <label asp-for="Book.Price"></label>
+                    <input asp-for="Book.Price" id="price" class="form-control" />
+                    <span asp-validation-for="Book.Price" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-4">
+                    <label asp-for="Book.DiscountPercent"></label>
+                    <input asp-for="Book.DiscountPercent" id="discountPercent" class="form-control" />
+                    <span asp-validation-for="Book.DiscountPercent" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-4">
+                    <label asp-for="Book.PriceAfterDiscount"></label>
+                    <input asp-for="Book.PriceAfterDiscount" id="priceAfterDiscount" class="form-control" value="" />
+                    <span asp-validation-for="Book.PriceAfterDiscount" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Book.IsAvailable"></label>
+                    <select asp-for="Book.IsAvailable" class="form-control">
+                        <option disabled selected>--Select Available--</option>
+                        <option value="@true">Yes</option>
+                        <option value="@false">No</option>
+                    </select>
+                    <span asp-validation-for="Book.IsAvailable" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Book.ImageUrl"></label>
+                    <input type="file" id="uploadImage" name="file" class="form-control" />
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Book.CategoryId"></label>
+                    <select asp-for="Book.CategoryId" asp-items="@Model.CategoryList" class="form-control">
+                        <option disabled selected>--Select Category--</option>
+                    </select>
+                    <span asp-validation-for="Book.CategoryId" class="text-danger"></span>
+                </div>
+                <div class="mb-3 col-6">
+                    <label asp-for="Book.BookAuthorId"></label>
+                    <select asp-for="Book.BookAuthorId" asp-items="@Model.BookAuthorList" class="form-control">
+                        <option disabled selected>--Select Author--</option>
+                    </select>
+                    <span asp-validation-for="Book.BookAuthorId" class="text-danger"></span>
+                </div>
+                <div class="col-12">
+                    @if (Model.Book.Id != 0)
+                    {
+                        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+                    }
+                    else
+                    {
+                        <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
+                    }
+
+                    <a asp-controller="Book" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to List</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-2 pt-4">
+            <img src="@Model.Book.ImageUrl" width="100%" style="border-radius:5px; border:1px solid #bbb9b9"/>
+        </div>
+    </div>
+
+    
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            height: 300,
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ]
+        });
+    </script>
+    <script>
+          const priceInput = document.querySelector('#price');
+          const discountPercentInput = document.querySelector('#discountPercent');
+          const priceAfterDiscountInput = document.querySelector('#priceAfterDiscount');
+
+          priceInput.addEventListener('input', calculatePriceAfterDiscount);
+          discountPercentInput.addEventListener('input', calculatePriceAfterDiscount);
+
+          function calculatePriceAfterDiscount() {
+            const price = parseFloat(priceInput.value) || 0;
+            const discountPercent = parseFloat(discountPercentInput.value) || 0;
+            const priceAfterDiscount = price - (price * discountPercent / 100);
+            priceAfterDiscountInput.value = priceAfterDiscount;
+          }
+    </script>
+    <script>
+        function ValidateInput(){
+            if (document.getElementById("uploadImage").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please upload Image!'
+                });
+                return false;
+            }
+            return true;
+        }
+    </script>
+}
+
+
