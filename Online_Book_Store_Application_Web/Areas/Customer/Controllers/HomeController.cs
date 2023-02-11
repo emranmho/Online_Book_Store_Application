@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Online_Book_Store_Application.Models;
 using Online_Book_Store_Application.Models.Models;
 using Online_Book_Store_Application.Repository.IRepository;
+using Online_Book_Store_Application.Utility;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -53,12 +55,17 @@ namespace Online_Book_Store_Application_Web.Areas.Customer.Controllers
             if(cart == null)
             {
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
+                _unitOfWork.Save();
+
+                HttpContext.Session.SetInt32(StaticDetails.SessionCart, 
+                    _unitOfWork.ShoppingCart.GetAll(u=>u.ApplicationUserId == claim.Value).ToList().Count);
             }
             else
             {
                 _unitOfWork.ShoppingCart.IncrementUpdate(cart, shoppingCart.Count);
+                _unitOfWork.Save();
+
             }
-            _unitOfWork.Save();
 
             return RedirectToAction(nameof(Index));
         }

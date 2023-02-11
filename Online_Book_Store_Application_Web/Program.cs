@@ -22,13 +22,24 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+builder.Services.AddAuthentication().AddFacebook(option =>
+{
+    option.AppId = "724520195892829";
+    option.AppSecret = "67fd6a8028e08350ac329bc6048057ac";
+});
 builder.Services.ConfigureApplicationCookie(option =>
 {
     option.LoginPath = $"/Identity/Account/Login";
     option.LogoutPath = $"/Identity/Account/Logout";
     option.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
-
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(option =>
+{
+    option.IOTimeout = TimeSpan.FromMinutes(100);
+    option.Cookie.HttpOnly= true ;
+    option.Cookie.IsEssential = true ;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -46,6 +57,7 @@ app.UseRouting();
 StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession();
 app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",

@@ -38,6 +38,7 @@ namespace Online_Book_Store_Application.Repository.Repository
 		{
 			var orderFromDb = _context.OrderHeaders.FirstOrDefault(x => x.Id == id);
 			
+            orderFromDb.PaymentDate=DateTime.Now;
             orderFromDb.SessionId = SessionId;
             orderFromDb.PaymentIntentId = PaymentIntentId;
 		}

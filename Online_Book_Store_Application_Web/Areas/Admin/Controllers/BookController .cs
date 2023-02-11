@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Online_Book_Store_Application.Models.ViewModels;
 using Online_Book_Store_Application.Repository.IRepository;
+using Online_Book_Store_Application.Utility;
 
 namespace Online_Book_Store_Application_Web.Areas.Admin.Controllers;
 
 [Area("Admin")]
+[Authorize(Roles = StaticDetails.Role_Admin)]
 public class BookController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;

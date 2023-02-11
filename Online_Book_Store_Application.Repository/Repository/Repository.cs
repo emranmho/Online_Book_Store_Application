@@ -26,9 +26,18 @@ namespace Online_Book_Store_Application.Repository.Repository
             await _dbSet.AddAsync(entity);
         }
 
-        public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
+        public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = true)
         {
-            IQueryable<T> query = _dbSet;
+            IQueryable<T> query;
+            if (tracked)
+            {
+                query = _dbSet;
+            }
+            else
+            {
+                query = _dbSet.AsNoTracking();
+            }
+            
 
             query = query.Where(filter);
             if (includeProperties != null)

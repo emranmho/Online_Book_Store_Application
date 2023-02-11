@@ -1,24 +1,32 @@
-﻿@using Online_Book_Store_Application.Utility;
+﻿@using Microsoft.AspNetCore.Http
+@using Online_Book_Store_Application.Utility;
+@inject IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - App</title>
-    <link rel="stylesheet" href="~/css//BoostWatchTheme.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css//BoostWatchTheme.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-family: Montserrat, -apple-system, system-ui, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, Bangla598, sans-serif;">
             <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarColor03">
+                <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">
+                    Book Store
+                </a>
+                <button class="navbar-toggler" type="button" asp-area="Customer" asp-controller="Home" asp-action="Index" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" asp-area="Customer" asp-action="Index" asp-controller="Home">
+                            <a class="nav-link active" asp-area="Customer" asp-controller="Home" asp-action="Index">
                                 Home
                                 <span class="visually-hidden">(current)</span>
                             </a>
@@ -41,16 +49,34 @@
                                 Manage Order
                             </a>
                         </li>
+                       @* @if(HttpContextAccessor.HttpContext.Session.GetInt32(StaticDetails.SessionCart) != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
+                                    <i class="fa-solid fa-cart-shopping"></i> &nbsp;
+                                    (@HttpContextAccessor.HttpContext.Session.GetInt32(StaticDetails.SessionCart))
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
+                                   
+                                </a>
+                            </li>
+                        }*@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
-                                <i class="fa-solid fa-cart-shopping"></i>
+                                @await Component.InvokeAsync("ShoppingCart")
                             </a>
                         </li>
+                        
                     </ul>
                     <partial name="_loginPartial" />
                     @* <form class="d-flex">
                     <input class="form-control me-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="font-family: &quot;News Cycle&quot;, &quot;Arial Narrow Bold&quot;, Bangla160, sans-serif;">Search</button>
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;, Bangla177, sans-serif;">Search</button>
                     </form>*@
                 </div>
             </div>
@@ -65,15 +91,16 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - Book Store - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    @*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>*@
+    @*<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>*@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.tiny.cloud/1/wj6lenc23u48ra7vc6fz5aa0j903igm3gc6z2d3hyp9dvjuu/tinymce/6/tinymce.min.js" referrerpolicy="origin"> </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

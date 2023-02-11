@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Online_Book_Store_Application.Models.Models;
 using Online_Book_Store_Application.Repository.IRepository;
+using Online_Book_Store_Application.Utility;
 
 namespace Online_Book_Store_Application_Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles =StaticDetails.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
