@@ -361,3 +361,14 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+#ignore EmailSender class
+Online_Book_Store_Application.Utility/EmailSender.cs
+
+#ignore appsetting
+Online_Book_Store_Application_Web/appsettings.json
+
+#ignore program.js
+
+#ignore appsetting
+Online_Book_Store_Application_Web/Program.cs
