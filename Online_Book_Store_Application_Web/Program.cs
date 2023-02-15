@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Online_Book_Store_Application.Repository.Repository;
-using Online_Book_Store_Application.DataAccess;
 using Online_Book_Store_Application.Repository.IRepository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Online_Book_Store_Application.Utility;
 using Stripe;
+using Online_Book_Store_Application.DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -25,7 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Online_Book_Store_Application.Models\Online_Book_Store_Application.Models.csproj" />
     <ProjectReference Include="..\Online_Book_Store_Application.Repository\Online_Book_Store_Application.Repository.csproj" />
-    <ProjectReference Include="..\Online_Book_Store_Application_Web.Utility\Online_Book_Store_Application.Utility.csproj" />
+    <ProjectReference Include="..\Online_Book_Store_Application.Utility\Online_Book_Store_Application.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

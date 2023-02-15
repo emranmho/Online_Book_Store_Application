@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Online_Book_Store_Applicati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Online_Book_Store_Application.Repository", "Online_Book_Store_Application.Repository\Online_Book_Store_Application.Repository.csproj", "{8098A621-8DAB-449F-8E63-009BFAC1E611}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Online_Book_Store_Application.Utility", "Online_Book_Store_Application_Web.Utility\Online_Book_Store_Application.Utility.csproj", "{03383B8B-65BF-4D0F-9AB9-B2B9DE066BA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Online_Book_Store_Application.Utility", "Online_Book_Store_Application.Utility\Online_Book_Store_Application.Utility.csproj", "{0B85DC72-1083-4B17-9D60-C7F885D6DA3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{8098A621-8DAB-449F-8E63-009BFAC1E611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8098A621-8DAB-449F-8E63-009BFAC1E611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8098A621-8DAB-449F-8E63-009BFAC1E611}.Release|Any CPU.Build.0 = Release|Any CPU
-		{03383B8B-65BF-4D0F-9AB9-B2B9DE066BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{03383B8B-65BF-4D0F-9AB9-B2B9DE066BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{03383B8B-65BF-4D0F-9AB9-B2B9DE066BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{03383B8B-65BF-4D0F-9AB9-B2B9DE066BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B85DC72-1083-4B17-9D60-C7F885D6DA3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B85DC72-1083-4B17-9D60-C7F885D6DA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B85DC72-1083-4B17-9D60-C7F885D6DA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B85DC72-1083-4B17-9D60-C7F885D6DA3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

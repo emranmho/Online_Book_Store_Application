@@ -1,4 +1,4 @@
-﻿using Online_Book_Store_Application.DataAccess;
+﻿using Online_Book_Store_Application.DataAccess.Data;
 using Online_Book_Store_Application.Repository.IRepository;
 using System;
 using System.Collections.Generic;

@@ -372,3 +372,6 @@ Online_Book_Store_Application_Web/appsettings.json
 
 #ignore appsetting
 Online_Book_Store_Application_Web/Program.cs
+
+.Program.cs
+.appsettings.json

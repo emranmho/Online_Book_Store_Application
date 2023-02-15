@@ -1,4 +1,4 @@
-﻿using Online_Book_Store_Application.DataAccess;
+﻿using Online_Book_Store_Application.DataAccess.Data;
 using Online_Book_Store_Application.Models.Models;
 using Online_Book_Store_Application.Repository.IRepository;
 

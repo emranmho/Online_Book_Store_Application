@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Online_Book_Store_Application.DataAccess;
+using Online_Book_Store_Application.DataAccess.Data;
 
 #nullable disable
 
