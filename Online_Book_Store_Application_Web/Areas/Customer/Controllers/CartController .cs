@@ -193,8 +193,9 @@ namespace Online_Book_Store_Application_Web.Areas.Customer.Controllers
                     _unitOfWork.Save();
                 }
             }
-            _emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "Confirm New Order", "<p>New Order Created</p>");
+            //_emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "Confirm New Order", "<p>New Order Created</p>");
             List<ShoppingCart> shoppingCarts = _unitOfWork.ShoppingCart.GetAll(u=>u.ApplicationUserId == orderHeader.ApplicationUserId).ToList();
+            HttpContext.Session.Clear();
             _unitOfWork.ShoppingCart.RemoveRange(shoppingCarts);
             _unitOfWork.Save();
             return View(id);

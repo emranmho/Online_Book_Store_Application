@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Online_Book_Store_Application.Models\Online_Book_Store_Application.Models.csproj" />
+    <ProjectReference Include="..\Online_Book_Store_Application.Utility\Online_Book_Store_Application.Utility.csproj" />
   </ItemGroup>
 
 </Project>
