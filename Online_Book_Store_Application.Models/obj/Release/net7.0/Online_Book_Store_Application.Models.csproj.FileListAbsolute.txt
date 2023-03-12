@@ -1,0 +1,12 @@
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\bin\Release\net7.0\Online_Book_Store_Application.Models.deps.json
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\bin\Release\net7.0\Online_Book_Store_Application.Models.dll
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\bin\Release\net7.0\Online_Book_Store_Application.Models.pdb
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\obj\Release\net7.0\Online_Book_Store_Application.Models.csproj.AssemblyReference.cache
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\obj\Release\net7.0\Online_Book_Store_Application.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\obj\Release\net7.0\Online_Book_Store_Application.Models.AssemblyInfoInputs.cache
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\obj\Release\net7.0\Online_Book_Store_Application.Models.AssemblyInfo.cs
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\obj\Release\net7.0\Online_Book_Store_Application.Models.csproj.CoreCompileInputs.cache
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\obj\Release\net7.0\Online_Book_Store_Application.Models.dll
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\obj\Release\net7.0\refint\Online_Book_Store_Application.Models.dll
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\obj\Release\net7.0\Online_Book_Store_Application.Models.pdb
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Models\obj\Release\net7.0\ref\Online_Book_Store_Application.Models.dll

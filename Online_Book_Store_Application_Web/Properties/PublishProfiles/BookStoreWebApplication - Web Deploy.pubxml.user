@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAj3xrvKf2FEWqviH2+tZ9TAAAAAACAAAAAAAQZgAAAAEAACAAAABeIyH35CR0tw/ZXmT83CipQOIhwEH8NOLV9O/mwt80mwAAAAAOgAAAAAIAACAAAADKomVE5oBmwdjv5Vyl/t1rrVkyI6LBxMf6DqZLvvdDLYAAAACvcvQKEXRDSJcsQCvzXMfA/CJtRwSKuzPxGtWg3O+303eKXYyKfRvR57jwH+8ldoLAzQfOjH+n6xTrGLWP/f46z2frSTFb2dlyIxURi+ftb1wT27I6DuJwHt+U21/hUeVPgbbPCQa4Va2nHSNWGb5zgVdfn8hqqMhzzABDa4dm6UAAAABmgvurZGZhDZOcWjphaFRi/kpFz1oKn1GRlEcywLDm49j51N5/YtmdWjimyojSECqIHZtIH/dIAQy/TVUc/6/k</EncryptedPassword>
+    <History>True|2023-03-02T07:42:36.4244632Z;True|2023-03-02T13:23:15.3641893+06:00;True|2023-02-26T23:40:09.9529301+06:00;True|2023-02-26T23:20:00.0622132+06:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DataConnectionName">
+      <Value>Server=tcp:onlinebookstoreappserver.database.windows.net,1433%3bInitial Catalog=onlinebookstore_db%3bPersist Security Info=False%3bUser ID=onlinebookstoreappserver%3bPassword=Admin123%2a%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\bin\Debug\net7.0\Online_Book_Store_Application.Utility.deps.json
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\bin\Debug\net7.0\Online_Book_Store_Application.Utility.dll
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\bin\Debug\net7.0\Online_Book_Store_Application.Utility.pdb
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\obj\Debug\net7.0\Online_Book_Store_Application.Utility.csproj.AssemblyReference.cache
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\obj\Debug\net7.0\Online_Book_Store_Application.Utility.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\obj\Debug\net7.0\Online_Book_Store_Application.Utility.AssemblyInfoInputs.cache
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\obj\Debug\net7.0\Online_Book_Store_Application.Utility.AssemblyInfo.cs
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\obj\Debug\net7.0\Online_Book_Store_Application.Utility.csproj.CoreCompileInputs.cache
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\obj\Debug\net7.0\Online_Book_Store_Application.Utility.dll
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\obj\Debug\net7.0\refint\Online_Book_Store_Application.Utility.dll
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\obj\Debug\net7.0\Online_Book_Store_Application.Utility.pdb
+D:\Personal Project\Online_Book_Store_Application\Online_Book_Store_Application.Utility\obj\Debug\net7.0\ref\Online_Book_Store_Application.Utility.dll
